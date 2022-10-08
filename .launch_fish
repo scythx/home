@@ -1,0 +1,7 @@
+if [[ -x /bin/fish && \
+      $(ps --no-header --pid=$PPID --format=cmd) != "fish" && \
+      -z ${BASH_EXECUTION_STRING} ]]
+then
+#      SHELL=/bin/fish
+    exec fish
+fi
