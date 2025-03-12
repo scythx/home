@@ -16,6 +16,12 @@ if [ -d ~/.config/bash/.bashrc.d ]; then
 fi
 unset rc
 
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+# Rust
+# export CARGO_HOME="$HOME/.cargo"
+# export CARGO_INSTALL_ROOT="$HOME/.cargo"
 # Initialize Node Version Manager (NVM)
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

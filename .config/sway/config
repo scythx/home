@@ -43,7 +43,9 @@ set $laptop eDP-1
 output $laptop scale 1.25
 
 output DP-6 position 0 0
+output DP-7 position 0 0
 output DP-8 position 1920 0
+output DP-10 position 1920 0
 output $laptop position 1920 1080
 
 ### Idle configuration
@@ -153,10 +155,10 @@ input "1267:12679:ELAN0672:00_04F3:3187_Touchpad" {
     bindsym $mod+Shift+9 move container to workspace number 9
     bindsym $mod+Shift+0 move container to workspace number 10
 
-    bindsym $mod+Control+Shift+$left move workspace to output right
-    bindsym $mod+Control+Shift+$down move workspace to output left
-    bindsym $mod+Control+Shift+$up move workspace to output down
-    bindsym $mod+Control+Shift+$right move workspace to output up
+    bindsym $mod+Control+Shift+Left move workspace to output right
+    bindsym $mod+Control+Shift+Down move workspace to output left
+    bindsym $mod+Control+Shift+Up move workspace to output down
+    bindsym $mod+Control+Shift+Right move workspace to output up
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #

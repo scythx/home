@@ -13,7 +13,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "24.05"; # Please read the comment before changing.
+  home.stateVersion = "24.11"; # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -27,7 +27,8 @@
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
     # # fonts?
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-    (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+    # (pkgs.nerdfonts.override { fonts = [ "FiraCode" ]; })
+    pkgs.nerd-fonts.fira-code
     pkgs.overpass
 
     # # You can also create simple shell scripts directly inside your
@@ -45,23 +46,33 @@
     pkgs.lazygit
 
     pkgs.bitwarden-cli
-    
+
     pkgs.waybar
     pkgs.rofi-wayland
     pkgs.dunst
 
-    pkgs.python3
+    pkgs.pre-commit
+
+    #(pkgs.python3.withPackages (ps: [
+    #]))
+
 
     pkgs.poetry
-    #pkgs.go
 
     # Cloud tools
+    pkgs.ansible
     pkgs.doctl
     pkgs.fluxcd
     pkgs.kubectl
     pkgs.kubernetes-helm
     pkgs.kustomize
+    pkgs.krew
     pkgs.linkerd_edge
+
+    pkgs.kind
+
+    # prog
+    pkgs.cargo
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -100,6 +111,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
+    CARGO_HOME = "/home/scythx/.cargo";
   };
   
   home.shellAliases = {
@@ -108,10 +120,13 @@
   };
 
   fonts.fontconfig.enable = true;
+
   targets.genericLinux.enable = true;
 
   xdg.enable = true;
   xdg.mime.enable = true;
+
+  services.blueman-applet.enable = false;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
